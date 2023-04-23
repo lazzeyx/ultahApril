@@ -174,8 +174,8 @@
     color: #2a2f2c;
   }
 
-  @media screen and (max-width: 450) {
+  @media screen and (max-width: 450px) {
     .open {
-        left: 0.4%;
+        left: 10%;
     }
   }
