@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Scratch Project ✨</title>
+    <!-- 👇 css code file 👇 -->
+    <link rel="stylesheet" href="./src/style/global.css" />
+</head>
+
+<body>
+    <!-- Integrated Blank From Scratch Project -->
+    <div class="container">
+        <!-- Header -->
+        <div class="topside">
+            <h1 id="headline">Countdown to your birthday</h1>
+            <div id="countdown">
+                <ul>
+                    <li><span id="days"></span>Days</li>
+                    <li><span id="hours"></span>Hours</li>
+                    <li><span id="minutes"></span>Minutes</li>
+                    <li><span id="seconds"></span>Seconds</li>
+                </ul>
+            </div>
+        </div>
+        <!-- LeftSide -->
+        <div class="leftside">
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left">&lArr;</i>
+                <div class="carousel">
+                    <img src="./assets/img/galery/2.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/16.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/8.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/9.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/15.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/13.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/10.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/7.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/14.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/11.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/12.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/17.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/18.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/3.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/4.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/1.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/5.jpg" alt="img" draggable="false">
+                    <img src="./assets/img/galery/6.jpg" alt="img" draggable="false">
+                </div>
+                <i id="right" class="fa-solid fa-angle-right">&rArr;</i>
+            </div>
+        </div>
+        <!-- CenterSide -->
+        <div class="modal-bday-container" id="centerside">
+            <div class="card-bday" id="card-bday">
+                <div class="outside-bday" id="outside-bday">
+                    <div class="front">
+                        <p class="b">Happy Birthday</p>
+                        <p class="b-girl">April</p>
+                        <div class="cake">
+                            <img src="./assets/img/decor/cake.png">
+                        </div>
+                    </div>
+                    <div class="back">
+                        <img src="./assets/img/galery/13.jpg" alt="">
+                    </div>
+                </div>
+                <div class="inside-bday">
+                    <p>Hal termudah yang pernah aku lakukan yaitu jatuh cinta sama kamu.
+                        <br>Aku akan terus cinta, sayang sama kamu sejak saat di Renea.
+                        Selamat ulang tahun yang ke 19 sayang
+                        semoga panjang umur, sehat selalu, rezeki lancar,pokoknya yang terbaik buat kamu. Semoga banyak
+                        kebahagiaan datang hari ini dan seterusnya ya sayang.
+                        Semoga juga semua harapan kamu bisa tercapai di tahun ini.<br>
+                        Maap yaa aku bukan cowok romantis atau semacamnya aku jauh dari kata sempurna yang bisa
+                        beruntung dapetin kamu
+                        <br>intinyaa aku sayang sama kamu
+                        <br>love uuuu sayang
+                        <br>lope sekebonn
+                        <br>wellll
+                    </p>
+                    <button data-modal-target="#modal-bday">=>TEKEN AKU DONG<= </button>
+                </div>
+            </div>
+            <div class="modal-bday" id="modal-bday">
+                <div class="modal-bday-header">
+                    <div class="title">YEEEE</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-bday-body">
+                    <p>hadiah nyusul ya sayang<br>
+                        apa kamu mau Gatot wkwk</p>
+                </div>
+            </div>
+            <div id="overlay"></div>
+            <div class="arrow-card-bday" id="arrow-card-bday">
+                <img src="./assets/img/decor/cat.png" alt="" class="cat" id="cat">
+                <p class="note1" id="note1">Buka sayang!! <br>apa mau dibukain??</p>
+                <p class="note2" id="note2">BAAAAAA!!!!!</p>
+            </div>
+        </div>
+        <!-- RightSide -->
+        <div class="rightside"></div>
+        <!-- Footer -->
+        <div class="footside">
+            <button><a href="https://www.desmos.com/calculator/yipgyeh7cx" target="_blank">Coba klik aku deh</a></button>
+        </div>
+    </div>
+
+    <!-- 👇 javascript code file 👇 -->
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>

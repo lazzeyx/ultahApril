@@ -1,0 +1,466 @@
+/*? global clearing */
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --pink: #ffc0cbff;
+    --light-orange: #ffdab9ff;
+    --pale-dogwood: #f8d4c9ff;
+    --selective-yellow: #fdb813ff;
+    --onyx: #3c3c3dff;
+    --columbia-blue: #aec6cfff;
+    --steel-blue: #2e86c1ff;
+    --coral-pink: #f1948aff;
+    --white: #ffffffff;
+    --antiflash-white: #f0f0f0ff;
+    --silver: #c0c0c0ff;
+    --dim-gray: #6e6e6eff;
+    --black: #000000ff;
+}
+
+.container {
+    background-color: var(--pink);
+    color: var(--onyx);
+
+    /* background-image: url("../../assets/img/decor/Ultah.png"); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 75%;
+
+    display: grid;
+    grid-template-areas:
+        "topside topside topside"
+        "leftside modal-bday-container rightside"
+        "footside footside footside";
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 12.5vh 75vh 12.5vh;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+/* Batas */
+
+.topside {
+    /* background: linear-gradient(to top, var(--dim-gray), var(--antiflash-white) 20%); */
+    /* border-bottom: 3px solid var(--dim-gray);
+    border-right: 2px solid var(--selective-yellow); */
+    grid-area: topside;
+}
+
+#headline {
+    padding-top: 0.6em;
+    padding-left: 1em;
+    font-weight: normal;
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+}
+
+#countdown {
+    display: flex;
+}
+
+#countdown li {
+    display: inline-block;
+    text-decoration: none;
+    padding-left: 1.6em;
+    font-size: 1.3rem;
+}
+
+#countdown li span {
+    display: block;
+}
+
+#birthday {
+    display: none;
+    padding: 1rem;
+}
+
+#birthday span {
+    padding: 0 0.5rem;
+}
+
+/* Batas */
+
+.modal-bday-container {
+    grid-area: modal-bday-container;
+    /* background-color: var(--pale-dogwood); */
+    display: block;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.modal-bday-container button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+
+
+.modal-bday {
+    position: fixed;
+    z-index: 10;
+    transform: translate(55%, 300px) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 500px;
+    max-width: 60%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-bday.active {
+    transform: translate(55%, 300px) scale(1);
+}
+
+.modal-bday-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-bday-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-bday-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-bday-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.card-bday {
+    width: 640px;
+    height: 400px;
+    position: absolute;
+    margin: auto;
+    left: 40%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.card-bday:hover {
+    transform: rotate(-5deg);
+    z-index: 3;
+}
+
+.card-bday:hover .outside-bday {
+    transform: rotateY(-150deg);
+}
+
+.card-bday.active {
+    transform: rotate(-5deg);
+}
+
+.card-bday .outside-bday.active {
+    transform: rotateY(-150deg);
+}
+
+.outside-bday,
+.inside-bday {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 50.1%;
+    box-shadow: 2px 2px 5px 4px hsla(240, 1%, 24%, 0.1);
+}
+
+.inside-bday {
+    left: 50%;
+    background: linear-gradient(to right, var(--light-orange), var(--pale-dogwood) 100%);
+    line-height: 20px;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@font-face {
+    font-family: "Cookies";
+    src: url(/assets/font/Christmas\ Cookies.otf);
+}
+
+.inside-bday p {
+    font-size: 1em;
+    font-family: 'Cookies', sans-serif;
+}
+
+.inside-bday button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.outside-bday {
+    transform-style: preserve-3d;
+    z-index: 1;
+    transform-origin: left;
+    transition: 2s;
+}
+
+.outside-bday p {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.outside-bday .b {
+    margin-top: 6%;
+    letter-spacing: 5px;
+}
+
+.outside-bday .b-girl {
+    padding-top: 5px;
+    letter-spacing: 8px;
+}
+
+.outside-bday .front,
+.outside-bday .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+}
+
+.outside-bday .front {
+    /* background-color: linear-gradient(to right, var(--light-orange), var(--pale-dogwood) 20%); */
+    background-color: var(--light-orange);
+}
+
+.cake {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+}
+
+.cake img {
+    width: 100%;
+}
+
+.outside-bday .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to left, var(--light-orange), var(--pale-dogwood) 100%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.outside-bday .back img {
+    height: 95%;
+    border-radius: 20px;
+    border: 5px solid var(--antiflash-white);
+
+}
+
+/* Kucing */
+
+.arrow-card-bday {
+    width: 515px;
+    height: 25em;
+    position: absolute;
+    top: 30.3%;
+}
+
+/* .arrow-card-bday.active {
+    position: static;
+    transform: translateY(9%);
+} */
+
+.cat {
+    width: 132px;
+    height: 139px;
+    transform: translate(150%, 150%);
+}
+
+.cat.active {
+    transform: translate(250%, 60%);
+}
+
+.note1 {
+    text-align: center;
+    transform: translate(120%, 2%);
+    border: 1px solid var(--black);
+    border-radius: 20px;
+    /* background-color: #ffffff; */
+    width: 10em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.note1.active {
+    visibility: hidden;
+}
+
+.note2 {
+    visibility: hidden
+}
+
+.note2.active {
+    color: var(--light-orange);
+    visibility: visible;
+    transform: translate(85%, -475%);
+}
+
+/* Batas */
+
+.leftside {
+    grid-area: leftside;
+    align-items: center;
+    display: flex;
+}
+
+.wrapper {
+    display: flex;
+    padding: 20px;
+    width: 850px;
+    position: relative;
+    left: 3vw;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 4px hsla(240, 1%, 24%, 0.1);
+}
+
+.wrapper i {
+    top: 50%;
+    height: 44px;
+    width: 44px;
+    color: #343F4F;
+    cursor: pointer;
+    font-size: 1.15rem;
+    position: absolute;
+    text-align: center;
+    line-height: 44px;
+    background: #fff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+}
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.wrapper i:hover {
+    background: #f2f2f2;
+}
+
+.wrapper i:first-child {
+    left: -22px;
+    display: none;
+}
+
+.wrapper i:last-child {
+    right: -22px;
+}
+
+.wrapper .carousel {
+    font-size: 0px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging img {
+    pointer-events: none;
+}
+
+.carousel img {
+    height: 500px;
+    object-fit: cover;
+    user-select: none;
+    margin-left: 14px;
+    border-radius: 20px;
+    width: calc(100% / 3);
+}
+
+.carousel img:first-child {
+    margin-left: 0px;
+}
+
+@media screen and (max-width: 900px) {
+    .carousel img {
+        width: calc(100% / 2);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .carousel img {
+        width: 100%;
+    }
+}
+
+
+.rightside {
+    grid-area: rightside;
+    /* background-color: var(--onyx); */
+}
+
+/* Batas */
+
+.footside {
+    transform: translate(48vw, -5vh);
+}
+
+.footside button {
+    outline: none;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    background: none;
+    cursor: pointer;
+    width: 10em;
+    height: 3em;
+    font-size: 1.2em;
+}
+
+.footside button a {
+    text-decoration: none;
+    color: var(--onyx);
+
+}

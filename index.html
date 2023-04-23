@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q n A</title>
+    <link rel="stylesheet" href="./src/style/qna.css">
+</head>
+
+<body>
+    <div class="card open" id="open">
+        <h2>Halloo, kamuu</h2>
+        <img src="./assets/img/decor/Ultah.png" onclick="openclose()">
+        <h3>Tekan gambarnya dongg</h3>
+    </div>
+    <div class="contact-form" id="contact-form">
+            <form>
+                <div class="card input-group">
+                    <label for="nama">Tulis nama cewek yang first date nya di datengin 1 RT di Renea!!</label>
+                    <input id="nama" name="nama" type="text">
+                </div>
+                <div class="card input-group">
+                    <label for="'makanan'">Apa makanan favorit kamu??</label>
+                    <input id="'makanan'" name="'makanan'" type="text">
+                </div>
+                <div class="card input-group">
+                    <label for="harapan">Tulis harapan kamu di tahun ini!!</label>
+                    <textarea name="harapan" id="harapan" cols="30" rows="10"></textarea>
+                </div>
+                <div class="card input-group">
+                    <label for="keinginan">Apa yang kamu inginkan lakukan dalam waktu dekat?</label>
+                    <input id="keinginan" name="keinginan" type="text">
+                </div>
+                <button type="submit">Kirim</button>
+            </form>
+    </div>
+
+
+    <div class="results" style="display: none;">
+        <h2>Form Data</h2>
+        <pre></pre>
+    </div>
+
+    <script src="./src/js/qna.js"></script>
+</body>
+
+</html>
