@@ -4,8 +4,6 @@ function handleFormSubmit(event) {
     const data = new FormData(event.target);
 
     const value = Object.fromEntries(data.entries());
-
-    const results = JSON.stringify(value, null, 2);
     
     window.open("https://api.whatsapp.com/send/?phone=%2B6287834902806&text=" + JSON.stringify(value))
 }
