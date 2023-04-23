@@ -5,18 +5,13 @@ function handleFormSubmit(event) {
 
     const value = Object.fromEntries(data.entries());
 
-    const results = document.querySelector('.results pre');
-    results.innerText = JSON.stringify(value, null, 2);
-    console.log({value})
+    const results = JSON.stringify(value, null, 2);
+    
+    window.open("https://api.whatsapp.com/send/?phone=%2B6287834902806&text=" + JSON.stringify(value))
 }
 
 const form = document.querySelector('.contact-form');
 form.addEventListener('submit', handleFormSubmit);
-
-// function open() {
-//     document.querySelector(".open").style.display = "none";
-//     document.querySelector(".contact-form").style.visibility = "visible";
-// }
 
 function openclose() {
     var fcard = document.getElementById('open');
@@ -28,5 +23,4 @@ function openclose() {
         fcard.style.display = 'none';
         scard.style.display = 'block';
     }
-
 }
